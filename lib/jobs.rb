@@ -9,11 +9,6 @@ class Jobs
     jobs_parsed = Nokogiri::HTML(jobs_unparsed)
     @jobs = jobs_parsed.css('div.job-container')
     @vacancies = []
-    # @value = @jobs.css('div.job-desc-block')
-
-    # @value1 = @value[0].css('div')[1]
-    # @value2 = @value1.css('div')[1]
-    # p @title = @value2.text
   end
 
   def fetch_jobs
@@ -21,7 +16,6 @@ class Jobs
       value = job.css('div.job-desc-block')
       value1 = value[0].css('div')[1]
       value2 = value1.css('div')[1]
-      # puts "running loop #{i}th times"
       @job_posting = {
         company: job.css('h3.latest-jobs-title').text,
         position: value2.text,
@@ -38,5 +32,5 @@ class Jobs
   end
 end
 
-# job = Jobs.new
-# p job.print_jobs
+job = Jobs.new
+p job.print_jobs

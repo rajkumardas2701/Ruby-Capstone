@@ -14,9 +14,9 @@ require_relative '../lib/jobs'
 # puts 'Enter your access token secret:'
 # acc_secret = gets.chomp
 
-# twitter_con = TwitterConnect.new
+twitter_con = TwitterConnect.new
 # (con_key, con_sec, acc_token, acc_secret)
-# corona = Corona.new
+corona = Corona.new
 fest = Festival.new
 # job = Jobs.new
 
@@ -26,14 +26,19 @@ fest = Festival.new
 # puts 'Death Case: ' + corona.death
 # puts 'Migrated Case: ' + corona.migrated
 
-fest.print_festivals
+# fest.print_festivals
 
 # job.print_jobs
 
-# loop do
-#   twitter_con.tweet("Status of Corona Cases in India #{corona.date}
-#   Active Case: #{corona.active}
-#   Discharged Case: #{corona.discharge}
-#   Death Case: #{corona.death}
-#   Migrated Case: #{corona.migrated}", 10)
-# end
+loop do
+  twitter_con.tweet("Corona Cases in India #{corona.date}
+  Active: #{corona.active}
+  Discharged: #{corona.discharge}
+  Death: #{corona.death}
+  Migrated: #{corona.migrated}", 60)
+
+  twitter_con.tweet("We have #{fest.count_festivals} festivals in #{fest.current_month} which falls on
+  #{fest.days_of_fest}", 20)
+
+
+end
