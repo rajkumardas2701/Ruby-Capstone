@@ -25,12 +25,4 @@ class Corona
     migrated_status = corona_parsed.css('div.migared_case')
     @migrated = migrated_status.css('span').text
   end
-
-  def print_status
-    # puts 'Status of Corona Cases in India ' + @date
-    # puts 'Active Case: ' + @active
-    # puts 'Discharged Case: ' + @discharge
-    # puts 'Death Case: ' + @death
-    # puts 'Migrated Case: ' + @migrated
-  end
 end

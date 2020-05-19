@@ -2,7 +2,7 @@
 require 'twitter'
 
 class TwitterConnect
-  def initialize(con_key = nil, con_sec = nil, acc_token = nil, acc_secret = nil)
+  def initialize(_con_key = nil, _con_sec = nil, _acc_token = nil, _acc_secret = nil)
     @client = Twitter::REST::Client.new do |config|
       # config.consumer_key = con_key
       # config.consumer_secret = con_sec

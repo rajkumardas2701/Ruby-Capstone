@@ -3,8 +3,6 @@ require 'httparty'
 require 'byebug'
 
 class Festival
-  # attr_reader :days_of_fest, :count
-
   def initialize
     url = 'https://www.drikpanchang.com/calendars/indian/indiancalendar.html'
     cal_unparsed = HTTParty.get(url)
@@ -14,7 +12,7 @@ class Festival
     @months = %w[January February
                  March April May June July August September October
                  November December]
-    @days_of_fest = ""
+    @days_of_fest = ''
   end
 
   private
@@ -37,37 +35,22 @@ class Festival
     @months[l - 1].capitalize
   end
 
-  public
-
   def count_festivals
     @count = 0
-    festivals.each do |date, event|
-      if date.include? current_month
-        @count += 1
-        # days_of_fest += "#{date},"
-    
-      end
-      
+    festivals.each do |date, _event|
+      @count += 1 if date.include? current_month
     end
-    return @count
+    @count
   end
 
   def days_of_fest
-    
-    festivals.each do |date, event|
-      if date.include? current_month
-        
-        value = "#{date}".split(" ")
-        @days_of_fest += (value[0] << " " << value[1] << " ")
-              
-      end
-      
+    festivals.each do |date, _event|
+      next unless date.include? current_month
+
+      value = date.to_s.split(' ')
+      @days_of_fest += (value[0] << ' ' << value[1] << ' ')
     end
-    
-    return @days_of_fest
+
+    @days_of_fest
   end
 end
-
-# fest = Festival.new
-# # p fest.count_festivals
-# p fest.days_of_fest

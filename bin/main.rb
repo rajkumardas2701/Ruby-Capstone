@@ -18,17 +18,13 @@ twitter_con = TwitterConnect.new
 # (con_key, con_sec, acc_token, acc_secret)
 corona = Corona.new
 fest = Festival.new
-# job = Jobs.new
-
-# puts 'Status of Corona Cases in India ' + corona.date
-# puts 'Active Case: ' + corona.active
-# puts 'Discharged Case: ' + corona.discharge
-# puts 'Death Case: ' + corona.death
-# puts 'Migrated Case: ' + corona.migrated
+job = Jobs.new
 
 # fest.print_festivals
-
-# job.print_jobs
+# job.get_job
+# p job.company
+# p job.position
+# p job.url
 
 loop do
   twitter_con.tweet("Corona Cases in India #{corona.date}
@@ -40,5 +36,9 @@ loop do
   twitter_con.tweet("We have #{fest.count_festivals} festivals in #{fest.current_month} which falls on
   #{fest.days_of_fest}", 20)
 
-
+  job.fetch_job
+  twitter_con.tweet("Job Vacancy in Bangalore,
+  Company: #{job.company}
+  Postion/Qualification: #{job.position}
+  Apply clicking on link below: #{job.url}", 10)
 end
