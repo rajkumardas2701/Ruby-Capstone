@@ -3,7 +3,6 @@ require_relative '../lib/jobs'
 describe Jobs do
   let(:obj) { Jobs.new }
   let(:jobs) { obj.instance_variable_get(:@jobs) }
-  jobs_parsed = ''
   url = 'https://www.freshersworld.com/jobs-in-bangalore/9999016065'
   jobs_unparsed = HTTParty.get(url)
   jobs_parsed = Nokogiri::HTML(jobs_unparsed)

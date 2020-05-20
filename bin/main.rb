@@ -25,11 +25,13 @@ someone = gets.chomp
 
 if someone == 'N'
 else
-  p twitter_con.follow_user(someone)
+  twitter_con.follow_user(someone)
 end
 
 loop do
   twitter_con.catch_new_follower
+  sleep(10)
+
   twitter_con.tweet("Corona Cases in India #{corona.date}
   Active: #{corona.active}
   Discharged: #{corona.discharge}
@@ -44,7 +46,4 @@ loop do
   Company: #{job.company}
   Postion/Qualification: #{job.position}
   Apply clicking on link below: #{job.url}", 10)
-
-  twitter_con.catch_new_follower
-  sleep(10)
 end
