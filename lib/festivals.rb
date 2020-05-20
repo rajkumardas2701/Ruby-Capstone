@@ -44,13 +44,13 @@ class Festival
   end
 
   def days_of_fest
+    @days_of_fest = ''
     festivals.each do |date, _event|
       next unless date.include? current_month
 
       value = date.to_s.split(' ')
       @days_of_fest += (value[0] << ' ' << value[1] << ' ')
     end
-
     @days_of_fest
   end
 end
