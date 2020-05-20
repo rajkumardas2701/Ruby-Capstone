@@ -1,63 +1,68 @@
-# Project Name
+# Ruby Capstone project on Twitter Bot
 
-> One paragraph statement about the project.
+> In this project, I have developed Twitter Bot using Ruby which connects to Twitter API.
 
 ![screenshot](./app_screenshot.png)
 
-Additional description about the project and its features.
+Capstone projects are solo projects at the end of the each of the Microverse Main Technical Curriculum sections. It is a real-world-like project built with business specification. This project has Bot functionality which interacts with Twitter API to follow new user, check their tweets, see if someone has started following you. Hence, send welcome message to them.
+Apart from above task, it will also give you latest Job, Covid cases and Indian Festivals updates.
 
 ## Built With
 
-- Major languages,
-- frameworks,
-- technologies used
+- Ruby
+- VScode
+- Twitter API
+- Rspec
 
-## Live Demo
+## Code Presentation
 
-[Live Demo Link](https://livedemo.com)
+[Project Demo](https://www.loom.com/share/f14874c94b594de4bf486794f28da703)
 
 
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
+<strong>Request access to Twitter API</strong>
 
-
-To get a local copy up and running follow these simple example steps.
+In order to test the Twitter Bot, you will need to apply for a Developer access on your account. Upon confirmation, create an APP on Twitter Developer portal and save token it generates. Also, ensure you have permission to this API with read, write and DM. 
 
 ### Prerequisites
 
-### Setup
+In order to test the bot, you do need to have Ruby (at least 2.5) and Rspec installed.
 
 ### Install
 
+<strong>Follow steps below to setup your environment</strong>
+
+$ git clone https://github.com/rajkumardas2701/Ruby-Capstone.git
+$ bundle install -> run this command to install the required gems
+$ bin/main.rb -> run this command to run the program
+$ gem install rspec -> run this command to install rspec
+$ rspec ->run this command to test the program with rspec
+
 ### Usage
 
-### Run tests
+<strong>Things this Bot can do,</strong>
 
-### Deployment
-
-
+1. It will help you follow someone
+2. It will get Timeline of same user
+3. It will check if you have new follower. if yes, it will send welcome DM
+4. It will post Corona status in India as per <a href="https://www.mygov.in/covid-19/#">website</a>
+5. It will post Indian Festivals on specific dates as per <a href="https://www.drikpanchang.com/calendars/indian/indiancalendar.html">website</a>
+6. It will post Job updates as per <a href="https://www.freshersworld.com/jobs-in-bangalore/9999016065">website</a>
 
 ## Authors
 
-👤 **Author1**
+👤 **Rajkumar Das**
 
-- Github: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- Linkedin: [linkedin](https://linkedin.com/linkedinhandle)
-
-👤 **Author2**
-
-- Github: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- Linkedin: [linkedin](https://linkedin.com/linkedinhandle)
+- Github: [@rajkumardas2701](https://github.com/rajkumardas2701)
+- Twitter: [@Rajkuma58621299](https://twitter.com/Rajkuma58621299)
+- Linkedin: [Rajkumar Das](https://www.linkedin.com/in/rajkumar-das-41308961/)
 
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](issues/).
+Feel free to check the [issues page](https://github.com/rajkumardas2701/Ruby-Capstone/issues).
 
 ## Show your support
 
@@ -65,9 +70,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- Thanks to @expjazz for sharing learning articles.
 
 ## 📝 License
 
