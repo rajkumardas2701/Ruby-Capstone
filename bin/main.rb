@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby
+# !/usr/bin/env ruby
 require_relative '../lib/corona'
 require_relative '../lib/festivals'
 require_relative '../lib/twitter_connect'
