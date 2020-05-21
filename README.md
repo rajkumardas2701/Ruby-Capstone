@@ -33,11 +33,11 @@ In order to test the bot, you do need to have Ruby (at least 2.5) and Rspec inst
 
 <strong>Follow steps below to setup your environment</strong>
 
-$ git clone https://github.com/rajkumardas2701/Ruby-Capstone.git \n
-$ bundle install -> run this command to install the required gems \n
-$ bin/main.rb -> run this command to run the program \n
-$ gem install rspec -> run this command to install rspec \n
-$ rspec ->run this command to test the program with rspec \n
+$ git clone https://github.com/rajkumardas2701/Ruby-Capstone.git <br>
+$ bundle install -> run this command to install the required gems <br>
+$ bin/main.rb -> run this command to run the program <br>
+$ gem install rspec -> run this command to install rspec <br>
+$ rspec ->run this command to test the program with rspec
 
 ### Usage
 
