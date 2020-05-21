@@ -35,6 +35,7 @@ In order to test the bot, you do need to have Ruby (at least 2.5) and Rspec inst
 
 $ git clone https://github.com/rajkumardas2701/Ruby-Capstone.git <br>
 $ bundle install -> run this command to install the required gems <br>
+$ gem install twitter -> This will install Twitter gem in your repo
 $ bin/main.rb -> run this command to run the program <br>
 $ gem install rspec -> run this command to install rspec <br>
 $ rspec ->run this command to test the program with rspec

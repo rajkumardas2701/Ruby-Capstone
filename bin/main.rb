@@ -23,27 +23,30 @@ puts 'Please enter Twitter name of someone you would like to follow and fetch th
 puts "If you don't want to follow anyone now, say 'N'"
 someone = gets.chomp
 
-if someone == 'N'
-else
-  twitter_con.follow_user(someone)
-end
+p someone == 'N' ? 'Moving to next Task' : twitter_con.follow_user(someone)
 
 loop do
   twitter_con.catch_new_follower
+  puts "Next task will be attempted in another 10 secs"
   sleep(10)
 
+  puts "Next task will be attempted in another 10 secs"
   twitter_con.tweet("Corona Cases in India #{corona.date}
   Active: #{corona.active}
   Discharged: #{corona.discharge}
   Death: #{corona.death}
   Migrated: #{corona.migrated}", 10)
 
+  puts "Next task will be attempted in another 10 secs"
   twitter_con.tweet("We have #{fest.count_festivals} festivals in #{fest.current_month} which falls on
   #{fest.days_of_fest}", 10)
 
+  puts "Next task will be attempted in another 10 secs"
   job.fetch_job
   twitter_con.tweet("Job Vacancy in Bangalore,
   Company: #{job.company}
   Postion/Qualification: #{job.position}
   Apply clicking on link below: #{job.url}", 10)
+  
+  puts "Next task will be attempted in another 10 secs"
 end

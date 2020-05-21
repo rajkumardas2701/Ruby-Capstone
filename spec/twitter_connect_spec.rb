@@ -3,7 +3,7 @@ require_relative '../lib/twitter_connect'
 describe TwitterConnect do
   let(:obj) { TwitterConnect.new }
   let(:followers_existing) { obj.instance_variable_get(:@followers_existing) }
-  let(:ids) { 2_842_991_291 }
+  let(:ids) { 1_234_567_891 }
   let(:follower_list_new) { obj.instance_variable_get(:@follower_list_new) }
 
   describe 'initialize' do
