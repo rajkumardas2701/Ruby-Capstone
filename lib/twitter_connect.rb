@@ -3,14 +3,10 @@ require 'twitter'
 class TwitterConnect
   def initialize(con_key = nil, con_sec = nil, acc_token = nil, acc_secret = nil)
     @client = Twitter::REST::Client.new do |config|
-      # config.consumer_key = con_key
-      # config.consumer_secret = con_sec
-      # config.access_token = acc_token
-      # config.access_token_secret = acc_secret
-      config.consumer_key = 'gTd0N7A8igaEuncrQHDlSqQG1'
-config.consumer_secret = '2j1hYwTCb4wju8QLyWuU40UX9NmmUV1wL9PxKZIfp1AVhk9Izo'
-config.access_token = '1223066921907548166-WzJq0aEpvSHTEL9EoeRzxb3938iEBk'
-config.access_token_secret = 'vxKUDD3Au7qRnlZ5SpuzOdRaMlNanZ6UMvY0aSR8OIwEU'
+      config.consumer_key = con_key
+      config.consumer_secret = con_sec
+      config.access_token = acc_token
+      config.access_token_secret = acc_secret
     end
     @a = []
     @followers_existing = @client.follower_ids.attrs[:ids]
