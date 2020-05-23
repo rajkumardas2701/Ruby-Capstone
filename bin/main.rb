@@ -26,22 +26,18 @@ someone = gets.chomp
 p someone == 'N' ? 'Moving to next Task' : twitter_con.follow_user(someone)
 
 loop do
-  twitter_con.catch_new_follower
-  puts 'Next task will be attempted in another 10 secs'
-  sleep(10)
-
-  puts 'Next task will be attempted in another 10 secs'
+  puts 'Sending Corona update to Twitter Handle..'
   twitter_con.tweet("Corona Cases in India #{corona.date}
   Active: #{corona.active}
   Discharged: #{corona.discharge}
   Death: #{corona.death}
   Migrated: #{corona.migrated}", 10)
 
-  puts 'Next task will be attempted in another 10 secs'
+  puts 'Sending festivals to Twitter Handle..in another 10 secs'
   twitter_con.tweet("We have #{fest.count_festivals} festivals in #{fest.current_month} which falls on
   #{fest.days_of_fest}", 10)
 
-  puts 'Next task will be attempted in another 10 secs'
+  puts 'Sending Job update to Twitter Handle..in another 10 secs'
   job.fetch_job
   twitter_con.tweet("Job Vacancy in Bangalore,
   Company: #{job.company}

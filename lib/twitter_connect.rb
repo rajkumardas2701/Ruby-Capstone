@@ -9,51 +9,26 @@ class TwitterConnect
       config.access_token_secret = acc_secret
     end
     @a = []
-    @followers_existing = @client.follower_ids.attrs[:ids]
     @follower_list_new = []
     @new_follower = ''
     @user_timeline = []
   end
 
-  def tweet(post, time)
+  def tweet(post = nil, time = nil)
     @client.update(post)
     sleep(time)
   end
 
-  def catch_new_follower
-    sleep(10)
-    @follower_list_new = @client.follower_ids.attrs[:ids]
-    if @follower_list_new.length > @followers_existing.length
-      @follower_list_new.each do |follower|
-        if @followers_existing.include? follower
-        else
-          @new_follower = follower
-          @followers_existing.push(follower)
-        end
-      end
-    end
-    message_new_follower(@new_follower) if @new_follower != ''
-  end
-
-  def follow_user(someone)
+  def follow_user(someone = nil)
     @client.follow(someone)
     timeline_content(someone)
   end
 
-  private
-
-  def message_new_follower(new_follower)
-    user = new_follower
-    @client.create_direct_message(user, 'Hello, Thank you for following my Twitter handle.
-    Stay tuned for more updates!')
-    @new_follower = ''
-  end
-
-  def user_timeline(someone)
+  def user_timeline(someone = nil)
     @client.user_timeline(someone)
   end
 
-  def timeline_content(someone)
+  def timeline_content(someone = nil)
     i = 0
     count = 0
     user_timeline(someone).each do |tweet|
@@ -71,3 +46,5 @@ class TwitterConnect
     @user_timeline
   end
 end
+
+# tweet = TwitterConnect.new

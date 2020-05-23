@@ -13,6 +13,8 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+require 'webmock/rspec'
+
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
@@ -95,4 +97,61 @@ RSpec.configure do |config|
   #   # test failures related to randomization by passing the same `--seed` value
   #   # as the one that triggered the failure.
   #   Kernel.srand config.seed
+  config.before(:each) do
+    stub_request(:get, 'https://www.drikpanchang.com/calendars/indian/indiancalendar.html')
+      .with(
+        headers: {
+          'Accept' => '*/*',
+          'Accept-Encoding' => 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+          'User-Agent' => 'Ruby'
+        }
+      )
+      .to_return(status: 200, body: '', headers: {})
+    stub_request(:get, 'https://www.freshersworld.com/jobs-in-bangalore/9999016065')
+      .with(
+        headers: {
+          'Accept' => '*/*',
+          'Accept-Encoding' => 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+          'User-Agent' => 'Ruby'
+        }
+      )
+      .to_return(status: 200, body: "{'company' => 'Job text'}", headers: {})
+  end
+
+  config.before(:each) do
+    stub_request(:any, /api.twitter.com/)
+      .with(headers: { 'Accept' => '*/*', 'User - Agent' => 'Ruby' })
+      .to_return(status: 200, body: 'Text', headers: {})
+    stub_request(:post, 'https://api.twitter.com/oauth2/token')
+      .with(
+        body: { 'grant_type' => 'client_credentials' },
+        headers: {
+          'Accept' => '*/*',
+          'Authorization' => 'Basic Og==',
+          'Connection' => 'close',
+          'Content-Type' => 'application/x-www-form-urlencoded',
+          'Host' => 'api.twitter.com',
+          'User-Agent' => 'TwitterRubyGem/7.0.0'
+        }
+      )
+      .to_return(status: 200, body: '', headers: {})
+  end
+  config.before(:each) do
+    stub_request(:any, /api.twitter.com/)
+      .with(headers: { 'Accept' => '*/*', 'User - Agent' => 'Ruby' })
+      .to_return(status: 200, body: 'Text', headers: {})
+    stub_request(:post, 'https://api.twitter.com/oauth2/token')
+      .with(
+        body: { 'grant_type' => 'client_credentials' },
+        headers: {
+          'Accept' => '*/*',
+          'Authorization' => 'Basic Og==',
+          'Connection' => 'close',
+          'Content-Type' => 'application/json',
+          'Host' => 'api.twitter.com',
+          'User-Agent' => 'TwitterRubyGem/7.0.0'
+        }
+      )
+      .to_return(status: 200, body: '', headers: {})
+  end
 end

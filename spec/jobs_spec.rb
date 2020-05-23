@@ -14,8 +14,11 @@ describe Jobs do
   end
 
   describe 'fetch_job' do
+    job = { 'company': 'Comp_Text', 'position': 'position',
+            'url': 'url' }
     it 'should return all the jobs posting in an array' do
-      expect(obj.fetch_job).to be_a(String)
+      allow(obj).to receive(:fetch_job).and_return(job)
+      expect(obj.fetch_job).to eq(job)
     end
   end
 end
