@@ -5,6 +5,7 @@ AllCops:
     - "Rakefile"
 
   DisplayCopNames: true
+  TargetRubyVersion: 2.7
 
 Layout/LineLength:
   Max: 120
@@ -16,7 +17,7 @@ Metrics/ClassLength:
   Max: 150
 Metrics/BlockLength:
   ExcludedMethods: ['describe']
-  Max: 30
+  Max: 100
 
 
 Style/Documentation:
